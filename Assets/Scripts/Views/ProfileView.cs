@@ -10,6 +10,11 @@ public class ProfileView : IView
 	/// The login view.
 	/// </summary>
 	public IView LoginView;
+
+	/// <summary>
+	/// The home view.
+	/// </summary>
+	public IView HomeView;
 	
 	/// <summary>
 	/// The login label.
@@ -168,6 +173,10 @@ public class ProfileView : IView
 			
 		}
 	}
+	public void StartCoRemoveAcc()
+	{
+		StartCoroutine ("CoRemoveAcc");
+	}
 
 	/// <summary>
 	/// Coroutine to remove the account.
@@ -191,7 +200,11 @@ public class ProfileView : IView
 		
 		if (www.text.Equals ("done")) 
 		{
+			this.DeactivateView();
 
+			HomeView.DeactivateView();
+
+			LoginView.ActivateView();
 		}
 
 
