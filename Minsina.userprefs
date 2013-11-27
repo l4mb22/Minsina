@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Views\HomeView.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Views\LoginView.cs" Line="81" Column="12" />
+      <File FileName="Assets\Scripts\Views\HomeView.cs" Line="42" Column="3" />
+      <File FileName="Assets\Scripts\Views\IView.cs" Line="11" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
