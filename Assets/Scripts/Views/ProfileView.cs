@@ -14,25 +14,37 @@ public class ProfileView : IView
 	/// <summary>
 	/// The login label.
 	/// </summary>
-	public UILabel LoginLabel;
+	public UIInput LoginLabel;
 	
 	/// <summary>
 	/// The name label.
 	/// </summary>
-	public UILabel NameLabel;
+	public UIInput NameLabel;
 	
 	/// <summary>
 	/// The email label.
 	/// </summary>
-	public UILabel EmailLabel;
+	public UIInput EmailLabel;
 	
 	/// <summary>
 	/// The message count label.
 	/// </summary>
-	public UILabel MessageCountLabel;
+	public UIInput MessageCountLabel;
+
+	/// <summary>
+	/// The save profile button.
+	/// </summary>
+	public UIButton SaveProfileBtn;
+
+	/// <summary>
+	/// The edit profile check box.
+	/// </summary>
+	public UICheckbox EditProfileCheckBox;
 	
 	#endregion Propriedades
-	
+
+	private bool m_bCheckBoxStatus;
+
 	#region Metodos
 	
 	/// <summary>
@@ -40,10 +52,19 @@ public class ProfileView : IView
 	/// </summary>
 	private void Start()
 	{
-		LoginLabel.text = "";
-		NameLabel.text = "";
-		EmailLabel.text = "";
-		MessageCountLabel.text = "";
+		m_bCheckBoxStatus = true;
+
+		SaveProfileBtn.isEnabled = false;
+
+		LoginLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+		NameLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+		EmailLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+		MessageCountLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+		LoginLabel.label.text = "";
+		NameLabel.label.text = "";
+		EmailLabel.label.text = "";
+		MessageCountLabel.label.text = "";
 		
 		StopCoroutine("CoProfile");
 		StartCoroutine("CoProfile");
@@ -102,6 +123,79 @@ public class ProfileView : IView
 			EmailLabel.text = info["email"].ToString();
 		}
 	}
+
+	public void StartCoUpdateProfile()
+	{
+		StartCoroutine("CoUpdateProfile");
+	}
+
+	/// <summary>
+	/// Cos the update profile.
+	/// </summary>
+	/// <returns>The update profile.</returns>
+	private IEnumerator CoUpdateProfile()
+	{
+		string auxLogin = LoginLabel.label.text;
+		string auxName = NameLabel.label.text;
+		string auxEmail = EmailLabel.label.text;
+		
+		LoginView.gameObject.GetComponent<LoginView>().LoginLabel.text = auxLogin;
+		
+		WWWForm form = new WWWForm();
+		
+		form.AddField("login", auxLogin);
+
+		form.AddField("name", auxName);
+		
+		form.AddField("email", auxEmail);
+		
+		WWW www = new WWW("localhost/updateprofile.php?", form); 
+		
+		yield return www;
+		
+		Debug.Log(www.text);
+		
+		if(www.text.Equals("done"))
+		{
+			Debug.Log("deu certo =)");
+
+			SaveProfileBtn.isEnabled = false;
+
+			EditProfileCheckBox.isChecked = true;
+		}
+		else
+		{
+			
+		}
+	}
+
+	/// <summary>
+	/// Coroutine to remove the account.
+	/// </summary>
+	/// <returns>The remove acc.</returns>
+	public IEnumerator CoRemoveAcc()
+	{
+		string auxLogin = LoginLabel.label.text;
+
+		LoginView.gameObject.GetComponent<LoginView>().LoginLabel.text = auxLogin;
+
+		WWWForm form = new WWWForm();
+		
+		form.AddField("login", auxLogin);
+
+		WWW www = new WWW("localhost/removeaccount.php?", form); 
+		
+		yield return www;
+		
+		Debug.Log(www.text);
+		
+		if (www.text.Equals ("done")) 
+		{
+
+		}
+
+
+	}
 	
 	/// <summary>
 	/// Metodo chamado pelo botao de sair.
@@ -115,6 +209,28 @@ public class ProfileView : IView
 		LoginView.ActivateView();
 		
 		this.gameObject.SetActive(false);
+	}
+
+	public void EnableEdit()
+	{
+		if(!m_bCheckBoxStatus)
+		{
+			NameLabel.gameObject.GetComponent<BoxCollider>().enabled = true;
+			EmailLabel.gameObject.GetComponent<BoxCollider>().enabled = true;
+
+			SaveProfileBtn.isEnabled = true;
+
+			m_bCheckBoxStatus = true;
+		}
+		else
+		{
+			NameLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+			EmailLabel.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+			SaveProfileBtn.isEnabled = false;
+
+			m_bCheckBoxStatus = false;
+		}
 	}
 	
 	#endregion Metodos
