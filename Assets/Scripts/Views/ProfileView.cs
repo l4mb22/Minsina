@@ -200,11 +200,17 @@ public class ProfileView : IView
 		
 		if (www.text.Equals ("done")) 
 		{
+			LoginView.gameObject.SetActive(true);
+
+			LoginView.ActivateView();
+
 			this.DeactivateView();
+
+			this.gameObject.SetActive(false);
 
 			HomeView.DeactivateView();
 
-			LoginView.ActivateView();
+			this.gameObject.SetActive(false);
 		}
 
 

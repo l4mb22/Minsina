@@ -108,9 +108,9 @@ public class RegisterView : IView
 		{
 			this.DeactivateView();
 			
-			ProfileView.gameObject.SetActive(true);
-			
-			ProfileView.ActivateView();
+			LoginView.gameObject.SetActive(true);
+
+			LoginView.ActivateView();
 			
 			this.gameObject.SetActive(false);
 		}
