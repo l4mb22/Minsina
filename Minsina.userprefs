@@ -1,12 +1,12 @@
 ﻿<Properties GitUserInfo="UsingMD">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Views\ProfileView.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Downloads\dataDec-2-2013 (2).sql">
     <Files>
-      <File FileName="Assets\Scripts\Views\LoginView.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Views\HomeView.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Views\IView.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Views\ProfileView.cs" Line="186" Column="45" />
-      <File FileName="Assets\Scripts\Views\RegisterView.cs" Line="121" Column="3" />
+      <File FileName="..\..\..\..\Downloads\eztrip_locais.sql" Line="66" Column="1" />
+      <File FileName="Assets\country.cshtml" Line="8" Column="57" />
+      <File FileName="..\..\..\..\Downloads\dataDec-2-2013.sql" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Downloads\dataDec-2-2013 (1).sql" Line="36" Column="20" />
+      <File FileName="..\..\..\..\Downloads\dataDec-2-2013 (2).sql" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
