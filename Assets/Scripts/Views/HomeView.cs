@@ -10,6 +10,8 @@ public class HomeView : IView
 
 	public IView ProfileView;
 
+	public IView PostView;
+
 	#endregion Propriedades
 	
 	#region Metodos
@@ -44,6 +46,15 @@ public class HomeView : IView
 		ProfileView.gameObject.SetActive (true);
 
 		ProfileView.ActivateView ();
+	}
+
+	public void GoToPost()
+	{
+		ScrollView.gameObject.SetActive (false);
+		
+		PostView.gameObject.SetActive (true);
+		
+		PostView.ActivateView ();
 	}
 
 	#endregion Metodos

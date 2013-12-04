@@ -175,6 +175,7 @@
      <Compile Include="Assets\Scripts\Views\IView.cs" />
      <Compile Include="Assets\Scripts\Views\LoginView.cs" />
      <Compile Include="Assets\Scripts\Views\MiniJSON.cs" />
+     <Compile Include="Assets\Scripts\Views\PostView.cs" />
      <Compile Include="Assets\Scripts\Views\ProfileView.cs" />
      <Compile Include="Assets\Scripts\Views\RegisterView.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
