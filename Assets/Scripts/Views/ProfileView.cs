@@ -226,7 +226,7 @@ public class ProfileView : IView
 
 	public void EnableEdit()
 	{
-		if(m_bCheckBoxStatus)
+		if(EditProfileCheckBox.isChecked)
 		{
 			NameLabel.gameObject.GetComponent<BoxCollider>().enabled = true;
 			EmailLabel.gameObject.GetComponent<BoxCollider>().enabled = true;
